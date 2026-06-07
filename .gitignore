@@ -1,0 +1,33 @@
+# macOS files
+.DS_Store
+__MACOSX/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Logs and runtime outputs
+*.log
+*_output.txt
+evidence_output.txt
+trace_output.txt
+
+# Assignment and private documents
+*.zip
+*.tar
+*.tar.gz
+*.doc
+*.docx
+*.pdf
+
+# Temporary files
+tmp/
+temp/
+.cache/

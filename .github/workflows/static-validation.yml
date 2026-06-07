@@ -1,0 +1,33 @@
+name: Static Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  static-validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate required files
+        run: |
+          test -f README.md
+          test -f docs/environment.md
+          test -f docs/runtime-limitations.md
+          test -f docs/validation.md
+          test -f scripts/install-bcc-ubuntu.sh
+          test -f scripts/check-ebpf-environment.sh
+          test -f scripts/run-bcc-smoke-test.sh
+
+      - name: Check shell syntax
+        run: |
+          bash -n scripts/install-bcc-ubuntu.sh
+          bash -n scripts/check-ebpf-environment.sh
+          bash -n scripts/run-bcc-smoke-test.sh
